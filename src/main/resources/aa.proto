@@ -1,0 +1,31 @@
+syntax = "proto2";
+
+option java_package = "com.shen.protocol";
+option java_outer_classname = "PersonProbuf";
+
+message Person {
+  required int32 id = 1;
+  optional string name = 2;
+
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message PhoneNumber {
+    required string number = 1;
+    optional PhoneType type = 2 [default = HOME];
+  }
+
+  repeated PhoneNumber phone = 4;
+
+  message CountryInfo {
+	  required string name = 1;
+	  optional int32 number = 2;
+  }
+}
+
+message AddressBook {
+  repeated Person person = 1;
+}

@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+option java_package = "com.shen.protocol";
+
+message User {
+  required int32 id = 1;
+  optional string name = 2;
+
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+  }
+
+}
